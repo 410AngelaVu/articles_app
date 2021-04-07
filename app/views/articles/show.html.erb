@@ -1,0 +1,11 @@
+<% Article.all.each do |article| %>
+<p>
+  <strong>Name:</strong>
+  <%= article.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= article.body %>
+</p>
+<% end %>

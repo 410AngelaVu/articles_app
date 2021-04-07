@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<%= Article.all.each do |article| %>
+<p>
+  <strong>Name:</strong>
+  <%= article.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= article.body %>
+</p>
+<% end %>
+<%= link_to 'Edit', edit_author_article_path(@article) %> |
+<%= link_to 'Back', author_articles_path %>
