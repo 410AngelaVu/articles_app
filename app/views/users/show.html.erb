@@ -1,0 +1,4 @@
+<h1>Welcome To The Author's List</h1>
+<% @user.articles.each do |x| %>
+<%= link_to x.title, x %>&nbsp;&nbsp;
+<% end %>

@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_04_07_205327) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.integer "author_id", null: false
+    t.integer "author_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_articles_on_author_id"
@@ -35,5 +35,4 @@ ActiveRecord::Schema.define(version: 2021_04_07_205327) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "articles", "authors"
 end

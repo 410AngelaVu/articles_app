@@ -20,10 +20,11 @@ session[:current_article] = @article.id
 end
 
 def create
-@article = current_userarticles.build(article_params)
+@article = current_user.articles.build(article_params)
  if @article.save
+ 	redirect_to @article
       flash[:notice] = 'The article was created succesfully.'
-      redirect_to @article
+      
     else
       
 
