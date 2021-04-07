@@ -1,4 +1,13 @@
 <h1>Welcome To The Author's List</h1>
-<% @user.articles.each do |x| %>
-<%= link_to x.title, x %>&nbsp;&nbsp;
+
+
+<% @user.articles.each do |article| %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= article.title %></h5>
+    <p class="card-text"><%= article.body %></p>
+    <a href="#" class="card-link"><%= article.author.name %></a>
+    <a href="#" class="card-link"><%= link_to 'Show', article %></a>
+  </div>
+</div>
 <% end %>
