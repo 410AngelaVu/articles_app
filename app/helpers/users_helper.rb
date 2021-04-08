@@ -11,7 +11,7 @@ module UsersHelper
 
   def user_like(user)
     user.likes.each do |f|
-      concat(link_to(f.article.title, f.article, class:'nav-link'))
+      concat(link_to(f.article.title, f.article, class: 'nav-link'))
     end
   end
 end
