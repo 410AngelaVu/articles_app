@@ -24,4 +24,15 @@ def like_or_dislike_btn(article)
     end
   
   end
+
+    def if_user_logged_in
+    if user_signed_in?
+        (link_to current_user.name, users_path, class: 'btn btn-success')
+    else
+      
+        (link_to 'Sign Up', new_user_registration_path, class: 'btn btn-success')
+    end
+  end
+
+
 end

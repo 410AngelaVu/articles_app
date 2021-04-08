@@ -1,8 +1,7 @@
 <div class="container">
 <h1 class="text-center">Welcome To The <%= @user.name %>'s List</h1><br>
-
-
 <% @user.articles.each do |article| %>
+
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><%= article.title %></h5>

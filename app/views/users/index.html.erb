@@ -1,1 +1,6 @@
-<h1>Welcome to <%= @user.name %> index page</h1>
+<div class="container">
+<h1>Articles that you liked:</h1>
+<% current_user.likes.each do |f| %>
+<%= link_to f.article.title, f.article %><br>
+<% end %>
+</div>
