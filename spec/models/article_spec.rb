@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-    current_user = User.first_or_create!(email: 'deja@example.com', name: 'deja', password: 'password',
+  current_user = User.first_or_create!(email: 'deja@example.com', name: 'deja', password: 'password',
                                        password_confirmation: 'password')
-  
 
   it 'has a title' do
     article = Article.new(

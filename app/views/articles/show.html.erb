@@ -1,14 +1,12 @@
 <div class="container">
-
-
-<div class="card show">
-  <div class="card-body"><br>
-    <h5 class="card-title text-center h1"> <%= @article.title %></h5><br>
-    <h6 class="card-subtitle mb-2 text-muted text-center"><%= @article.body %></h6><br>
-    <p class="card-text text-center"><%= @article.author.name %></p>
-    <p class="card-text text-center"><%= like_or_dislike_btn(@article) %></p>
-    <p class="card-text text-center"><%= @article.likes.count %> likes</p>
-  </div>
-</div>
+	<div class="card show">
+  		<div class="card-body"><br>
+    	<h5 class="card-title text-center h1"> <%= @article.title %></h5><br>
+    	<h6 class="card-subtitle mb-2 text-muted text-center"><%= @article.body %></h6><br>
+    	<p class="card-text text-center"><%= @article.author.name %></p>
+    	<p class="card-text text-center"><%= like_or_dislike_btn(@article) %></p>
+    	<p class="card-text text-center"><%= @article.likes.count %> likes</p>
+    	</div>
+	</div>
 </div>
 

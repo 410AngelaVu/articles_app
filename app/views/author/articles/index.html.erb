@@ -1,31 +1,28 @@
 <p id="notice"><%= notice %></p>
+
 <div class="container">
   <div class="float-right">
-<%= link_to "Create New Article",  new_author_article_path, class:'btn btn-success' %>
-</div>
-<h1 class="text-center">Articles Author Page</h1>
-
-<br>
-
-
-<div class="row">
-  
-<% @articles.each.each do |article| %>
-<div class="col">
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title"><%= article.title %></h5>
-    <h6 class="card-subtitle mb-2 text-muted"><%= article.author.name %></h6>
-    <p class="card-text"><%= article.body %></p>
-    <a href="#" class="card-link"><%= link_to article.author.name, article.author %></a>&nbsp;
-    <a href="#" class="card-link"><%= link_to 'Show', article %></a>
-    <% if current_user.articles.include?(article) %>
-    <a href="#" class="card-link"><%= link_to 'Edit', edit_author_article_path(article) %></a>
-    <a href="#" class="card-link"><%= link_to 'Delete', author_article_path(article), method: :delete %></a>
-    <% end %>
+    <%= link_to "Create New Article",  new_author_article_path, class:'btn btn-success' %>
   </div>
-</div><br>
-</div>
-<% end %>
-</div>
+  <h1 class="text-center">Articles Author Page</h1>
+<br>
+    <div class="row">
+      <% @articles.each.each do |article| %>
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= article.title %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= article.author.name %></h6>
+              <p class="card-text"><%= article.body %></p>
+              <a href="#" class="card-link"><%= link_to article.author.name, article.author %></a>&nbsp;
+              <a href="#" class="card-link"><%= link_to 'Show', article %></a>
+              <% if current_user.articles.include?(article) %>
+              <a href="#" class="card-link"><%= link_to 'Edit', edit_author_article_path(article) %></a>
+              <a href="#" class="card-link"><%= link_to 'Delete', author_article_path(article), method: :delete %></a>
+              <% end %>
+            </div>
+          </div><br>
+        </div>
+      <% end %>
+    </div>
 </div>
