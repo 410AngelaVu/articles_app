@@ -1,17 +1,4 @@
 <div class="container">
 <h1 class="text-center">Welcome To The <%= @user.name %>'s List</h1><br>
-<% @user.articles.each do |article| %>
-
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title"><%= article.title %></h5>
-    <p class="card-text"><%= article.body %></p>
-    <a href="#" class="card-link"><%= link_to 'Show', article %></a>&nbsp;&nbsp;
-     <% if current_user.articles.include?(article) %>
-    <a href="#" class="card-link"><%= link_to 'Edit', edit_author_article_path(article) %></a>&nbsp;&nbsp;
-    <a href="#" class="card-link"><%= link_to 'Delete', author_article_path(article), method: :delete %></a>
-    <% end %>
-  </div>
-</div>
-<% end %>
+<% user_article(@user) %>
 </div>

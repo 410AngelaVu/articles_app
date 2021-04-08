@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
  it 'is database authenticable' do
   user = User.create(
   	name: 'test1',
-     email: 'test@example.com', 
+    email: 'test@example.com', 
     password: 'password123',
     password_confirmation: 'password123'
   )
