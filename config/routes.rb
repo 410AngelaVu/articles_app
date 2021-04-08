@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users
-  resources :articles, only: [:index, :show]
+  resources :articles, only: [:index, :show] do
+	resources :likes, only: [:create, :destroy, :index]
+  end
   namespace :author do
   	resources :articles
   end 

@@ -1,6 +1,7 @@
 class Author::ArticlesController < ApplicationController
 before_action :set_article, only: [:show, :edit, :update, :destroy]
 before_action :check_if_author
+# before_action :correct_user
 
 def index
 @articles = Article.all.order('created_at DESC')
@@ -11,7 +12,7 @@ def new
 end
 
 def edit
-
+@article = Article.find(params[:id])
 	end
 
 def show
@@ -33,16 +34,14 @@ def create
 end
 
 def update
-respond_to do |format|
-if @article.update(article_params)
-	format.html { redirect_to @article, notice: 'Article is successfully updated.' }
-	format.json { render :show, status: :ok, location: @article }
-else 
-	format.html { render :edit }
-	format.json { render json: @article.errors, status: :unprocessable_entity }
-end
-end
-end
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render 'edit'
+
+    end
+  end
 
 def destroy
 @article.destroy
@@ -54,6 +53,11 @@ end
 
 
 private
+
+# def correct_user
+#    @article = current_user.articles.find_by(id: params[:id])
+#     redirect_to articles_path, notice: 'Not Authorized' if @article.nil?
+#   end
 
 def check_if_author
 redirect_to root_path unless current_user.is_author?

@@ -1,27 +1,31 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="float-right">
+<%= link_to "Create New Article",  new_author_article_path, class:'btn btn-success' %>
+</div>
+<h1 class="text-center">Articles Author Page</h1>
 
-<h1>Articles</h1>
+<br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.body %></td>
-        <td><%= link_to 'Show', author_article_path(article) %></td>
-        <td><%= link_to 'Edit', edit_author_article_path(article) %></td>
-        <td><%= link_to 'Destroy', author_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="row">
+  
+<% @articles.each.each do |article| %>
+<div class="col">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= article.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= article.author.name %></h6>
+    <p class="card-text"><%= article.body %></p>
+    <a href="#" class="card-link"><%= link_to article.author.name, article.author %></a>&nbsp;
+    <a href="#" class="card-link"><%= link_to 'Show', article %></a>
+    <% if current_user.articles.include?(article) %>
+    <a href="#" class="card-link"><%= link_to 'Edit', edit_author_article_path(article) %></a>
+    <a href="#" class="card-link"><%= link_to 'Delete', author_article_path(article), method: :delete %></a>
     <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'Create New Article', new_author_article_path %>
+  </div>
+</div>
+</div>
+<% end %>
+</div>
+</div>
